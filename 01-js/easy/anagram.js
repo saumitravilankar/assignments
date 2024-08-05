@@ -12,10 +12,8 @@ function isAnagram(str1, str2) {
       return false;
     }
   }
-  
+
   return true;
 }
-
-isAnagram("hello", "world");
 
 module.exports = isAnagram;
