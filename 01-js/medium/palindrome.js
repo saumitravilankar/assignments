@@ -4,7 +4,11 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const formattedString = str.replace(/[^a-zA-Z0-9]+/g, ""); // Regex to remove spaces and special characters
+  return (
+    formattedString.toLowerCase() ===
+    Array.from(formattedString.toLowerCase()).reverse().join("")
+  );
 }
 
 module.exports = isPalindrome;
