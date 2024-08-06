@@ -11,7 +11,41 @@
 */
 
 class Todo {
+  #index = 0;
+  constructor() {
+    this.todoList = new Map();
+  }
 
+  add(todo) {
+    this.todoList.set(this.#index, todo);
+    this.#index += 1;
+    return Array.from(this.todoList.values());
+  }
+
+  remove(indexOfTodo) {
+    this.todoList.delete(indexOfTodo);
+    return Array.from(this.todoList.values());
+  }
+
+  update(index, updatedTodo) {
+    if (!this.todoList.get(index)) {
+      return Array.from(this.todoList.values());
+    }
+    return this.todoList.set(index, updatedTodo);
+  }
+
+  getAll() {
+    return Array.from(this.todoList.values());
+  }
+
+  get(indexOfTodo) {
+    if (!this.todoList.get(indexOfTodo)) return null;
+    return this.todoList.get(indexOfTodo);
+  }
+
+  clear() {
+    return this.todoList.clear();
+  }
 }
 
 module.exports = Todo;
